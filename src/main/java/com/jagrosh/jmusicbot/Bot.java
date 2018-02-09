@@ -61,7 +61,7 @@ import org.slf4j.LoggerFactory;
 public class Bot extends ListenerAdapter {
     
     private final HashMap<String,Settings> settings;
-    private final HashMap<Long,Pair<Long,Long>> lastNP; // guild -> channel,message
+    private final HashMap<Long,<Long,Long>> lastNP; // guild -> channel,message
     private final AudioPlayerManager manager;
     private final EventWaiter waiter;
     private final ScheduledExecutorService threadpool;
@@ -180,7 +180,8 @@ public class Bot extends ListenerAdapter {
     
     public void setLastNP(Message m)
     {
-        lastNP.put(m.getGuild().getIdLong(), new Pair<>(m.getTextChannel().getIdLong(), m.getIdLong()));
+        lastNP.put(m.getGuild().getIdLong(), 
+        new Pair<>(m.getTextChannel().getIdLong(), m.getIdLong()));
     }
 
     @Override
